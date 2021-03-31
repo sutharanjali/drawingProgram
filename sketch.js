@@ -1,4 +1,4 @@
-let symmetry = 5;
+let symmetry = 6;
 let radial = false;
 let angle = 360 / symmetry;
 let strokeThickness = 2;
@@ -11,10 +11,10 @@ function setup() {
   createCanvas(400, 400);
   background(220);
   angleMode(DEGREES);
-  strokeWeight(5);
+  //strokeWeight(5);
 
   clearButton = createButton('Clear');
-  clearButton.position(width / 10 - clearButton.width/10, 700);
+  clearButton.position(width / 10 - clearButton.width / 10, 700);
   clearButton.mousePressed(clearScreen);
   clearButton.class("clearButton");
 
@@ -24,14 +24,14 @@ function setup() {
   saveButton.class("saveButton");
 
   rotationalButton = createButton('Rotational');
-  rotationalButton.position(width / 1.7 - rotationalButton.width/1.7, 700);
+  rotationalButton.position(width / 1.7 - rotationalButton.width / 1.7, 700);
   rotationalButton.mousePressed(rotateSymmetry);
   rotationalButton.class("rotationalButton");
 
-    radialButton = createButton('Radial');
-    radialButton.position(width/1.12 - radialButton.width/1.12, 700);
-    radialButton.mousePressed(radialSymmetry);
-    radialButton.class("radialButton");
+  radialButton = createButton('Radial');
+  radialButton.position(width / 1.12 - radialButton.width / 1.12, 700);
+  radialButton.mousePressed(radialSymmetry);
+  radialButton.class("radialButton");
 }
 
 function draw() {
@@ -55,18 +55,12 @@ function draw() {
         rotate(angle);
         strokeWeight(strokeThickness);
         line(mx, my, pmx, pmy);
-        //toggle rotational symmetry vs radial symmetry
-//         if (key === 'r') {
-          
-//         } else if (key === 'x') {
 
-//         }
         if (radial == true) {
           push();
           scale(1, -1);
           line(mx, my, pmx, pmy);
           pop();
-
         }
       }
     }
